@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+
+import MainLayout from '../layouts/Main_Layout.astro';
+
+import { Icon } from 'astro-icon/components';
+
+import navData from '../data/navData';
+---
+
+<MainLayout >
+	<div class="p-4 flex ">
+		<h1 class="font-bold text-6xl">Welcome to&nbsp;</h1> 
+		<h1 class="text-6xl font-bold bg-linear-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">ToolsX</h1>
+	</div>
+	<div>
+		<h1 class="font-semibold text-3xl m-5">Bạn muốn dùng công cụ nào?</h1>
+		<ul class="flex flex-row items-center justify-center mr-5">
+        {
+            navData.map((item) => (
+                <li>
+                    <a href={item.path} class={item.class}>
+                        <Icon name={item.icon}/>
+                        {item.name}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+	</div>
+</MainLayout>

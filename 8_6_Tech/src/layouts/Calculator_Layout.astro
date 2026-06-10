@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex flex-col justify-center items-center max-w-125 bg-gray-800 rounded-[10px] mt-5 ">
+      <input type="text" id="Display" readonly class="w-92% h-full mt-2.5 bg-gray-900 text-white border-none rounded-[10px] text-right text-4xl">
+      <div class="grid grid-cols-4 gap-2.5 p-3.75">
+          <button onclick="appendToDisplay('7')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">7</button>
+          <button onclick="appendToDisplay('8')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">8</button>
+          <button onclick="appendToDisplay('9')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">9</button>
+          <button onclick="appendToDisplay('*')" class="w-25 h-15 rounded-[10px] border-none bg-gray-500 text-white text-4xl cursor-pointer font-bold">*</button>            <button onclick="appendToDisplay('4')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">4</button>
+          <button onclick="appendToDisplay('5')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">5</button>
+          <button onclick="appendToDisplay('6')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">6</button>
+          <button onclick="appendToDisplay('-')" class="w-25 h-15 rounded-[10px] border-none bg-gray-500 text-white text-4xl cursor-pointer font-bold">-</button>
+          <button onclick="appendToDisplay('1')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">1</button>
+          <button onclick="appendToDisplay('2')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">2</button>            <button onclick="appendToDisplay('3')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">3</button>
+          <button onclick="appendToDisplay('+')" class="w-25 h-15 rounded-[10px] border-none bg-gray-500 text-white text-4xl cursor-pointer font-bold">+</button>
+          <button onclick="appendToDisplay('0')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">0</button>
+          <button onclick="appendToDisplay('.')" class="w-25 h-15 rounded-[10px] border-none bg-gray-700 text-white text-4xl cursor-pointer font-bold">.</button>
+          <button onclick="appendToDisplay('/')" class="w-25 h-15 rounded-[10px] border-none bg-gray-500 text-white text-4xl cursor-pointer font-bold">/</button>
+          <button onclick="calculate()" class="w-25 h-15 rounded-[10px] border-none bg-blue-700 text-white text-4xl cursor-pointer font-bold">=</button>
+          <button onclick="Xoa()" class="w-25 h-15 rounded-[10px] border-none bg-gray-500 text-white text-4xl cursor-pointer font-bold">C</button>
+      </div>
+  </div>
+
+    <script>
+      // @ts-nocheck
+      const display = document.getElementById('Display');
+
+      function appendToDisplay(input) {
+        if (!display) return;
+        display.value += input;
+      }
+
+      function calculate() {
+        if (!display) return;
+        try {
+          display.value = eval(display.value);
+        } catch (error) {
+          display.value = 'Error';
+        }
+      }
+
+      function Xoa() {
+        if (!display) return;
+        display.value = '';
+      }
+
+      (window as any).appendToDisplay = appendToDisplay;
+      (window as any).calculate = calculate;
+      (window as any).Xoa = Xoa;
+    </script>
+</body>
+</html>
