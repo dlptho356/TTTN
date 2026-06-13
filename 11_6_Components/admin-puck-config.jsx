@@ -1,11 +1,11 @@
-import React from 'react';
+// import React from 'react';
 import AdminHeading from './components/admin-heading';
 import AdminText from './components/admin-text';
 import AdminImage from './components/admin-image';
 import AdminSection from './components/admin-section';
 import AdminHero from './components/admin-hero';
 import AdminContent, {ContainerRadiusFields} from './components/admin-content';
-
+import AdminMultipleContent, {MultiContainerRadiusFields} from './components/admin-multipleContent';
 //Config — đăng ký 5 components với fields + defaultProps + render.
 
 export const puckConfig = {
@@ -311,6 +311,7 @@ export const puckConfig = {
               type: 'object',
               label: 'Nút',
               objectFields: {
+                url: { type: 'text', label: 'URL'},
                 content: { type: 'text', label: 'Nội dung', contentEditable: true },
                 colorText: { type: 'text', label: 'Màu chữ', default: '#000000' },
                 level: {
@@ -355,11 +356,9 @@ export const puckConfig = {
                 }
               }
             },  
-
-            
+          },
         },
       },
-    },
 
       defaultProps: {
         background: { type: 'color', color: '#00CCFF' },
@@ -392,6 +391,227 @@ export const puckConfig = {
       },
 
       render: (props) => <AdminContent {...props} />
+    },
+
+    MultipleContent: {
+      label: "Multiple Content Banner",
+      fields: {
+        background: {
+          type: 'object',
+          label: 'Background',
+          objectFields: {
+            type: {
+              type: 'select',
+              label: 'Loại',
+              options: [
+                { label: 'Màu', value: 'color' },
+                { label: 'Gradient', value: 'gradient' },
+                { label: 'Ảnh', value: 'image' },
+                { label: 'Gif', value: 'gif' }
+              ]
+            },
+            color: { type: 'text', label: 'Màu nền', default: '#ffffff' },
+            gradientFrom: { type: 'text', label: 'Gradient từ', default: '#667eea' },
+            gradientTo: { type: 'text', label: 'Gradient đến', default: '#764ba2' },
+            gradientDirection: { type: 'text', label: 'Hướng', default: 'to bottom right' },
+            imageUrl: { type: 'text', label: 'URL ảnh nền' },
+            gif: { type: 'text', label: 'URL gif' }
+          }
+        },
+        
+        headding: {
+          type: 'object',
+          label: 'Tiêu đề',
+          objectFields: {
+            content: { type: 'text', label: 'Nội dung', contentEditable: true },
+            color: { type: 'text', label: 'Màu chữ', default: '#000000' },
+            level: {
+              type: 'select',
+              label: 'Cấp độ',
+              options: [
+                { label: 'H1', value: 1 },
+                { label: 'H2', value: 2 },
+                { label: 'H3', value: 3 },
+                { label: 'H4', value: 4 },
+                { label: 'H5', value: 5 },
+                { label: 'H6', value: 6 },
+              ],
+            },
+          }
+        },
+
+        subtitle: {
+          type: 'object',
+          label: 'Văn bản',
+          objectFields: {
+            content: { type: 'text', label: 'Nội dung', contentEditable: true },
+            color: { type: 'text', label: 'Màu chữ', default: '#000000' },
+            level: {
+              type: 'select',
+              label: 'Cấp độ',
+              options: [
+                { label: 'H1', value: 1 },
+                { label: 'H2', value: 2 },
+                { label: 'H3', value: 3 },
+                { label: 'H4', value: 4 },
+                { label: 'H5', value: 5 },
+                { label: 'H6', value: 6 },
+              ],
+            },
+          }
+        },
+
+        container: {
+          type: 'array',
+          label: 'Container',
+          arrayFields: {
+            containerRadius: {
+              type: 'custom',
+              label: 'Chọn góc để bo tròn',
+              render: MultiContainerRadiusFields 
+            },
+
+            title: {
+              type: 'object',
+              label: 'Tiêu đề',
+              objectFields: {
+                content: { type: 'text', label: 'Nội dung', contentEditable: true, default: 'Tiêu đề' },
+                color: { type: 'text', label: 'Màu chữ', default: '#000000' },
+                level: {
+                  type: 'select',
+                  label: 'Cấp độ',
+                  options: [
+                    { label: 'H1', value: 1 },
+                    { label: 'H2', value: 2 },
+                    { label: 'H3', value: 3 },
+                    { label: 'H4', value: 4 },
+                    { label: 'H5', value: 5 },
+                    { label: 'H6', value: 6 },
+                  ],
+                  default: 2,
+                },
+              }
+            },
+            icon: {
+              type: 'object',
+              label: 'Icon',
+              objectFields: {
+                type: {
+                  type: 'select',
+                  label: 'Kiểu icon',
+                  options: [
+                    { label: 'Text', value: 'text' },
+                    { label: 'Hình ảnh', value: 'image' },
+                  ],
+                  default: 'text',
+                },
+                content: { type: 'text', label: 'Nội dung icon', contentEditable: true, default: '★' },
+                imageUrl: { type: 'text', label: 'URL ảnh icon' },
+              },
+            },
+
+            button: {
+              type: 'object',
+              label: 'Nút',
+              objectFields: {
+                url: { type: 'text', label: 'URL', default: '#' },
+                content: { type: 'text', label: 'Nội dung', contentEditable: true, default: 'Văn bản' },
+                colorText: { type: 'text', label: 'Màu chữ', default: '#000000' },
+                level: {
+                  type: 'select',
+                  label: 'Cấp độ',
+                  options: [
+                    { label: 'H1', value: 1 },
+                    { label: 'H2', value: 2 },
+                    { label: 'H3', value: 3 },
+                    { label: 'H4', value: 4 },
+                    { label: 'H5', value: 5 },
+                    { label: 'H6', value: 6 },
+                  ],
+                  default: 4,
+                },
+
+                buttonBg: {
+                  type: 'object',
+                  label: 'Nền của nút bấm',
+                  objectFields:{
+                    type: {
+                      type: 'select',
+                      label: 'Loại',
+                      options: [
+                        { label: 'Màu', value: 'color' },
+                        { label: 'Gradient', value: 'gradient' },
+                        { label: 'Ảnh', value: 'image' },
+                        { label: 'Gif', value: 'gif' }
+                      ],
+                      default: 'color'
+                    },
+                      color: { type: 'text', label: 'Màu nền', default: '#ffffff' },
+                      gradientFrom: { type: 'text', label: 'Gradient từ', default: '#667eea' },
+                      gradientTo: { type: 'text', label: 'Gradient đến', default: '#764ba2' },
+                      gradientDirection: { type: 'text', label: 'Hướng', default: 'to bottom right' },
+                      imageUrl: { type: 'text', label: 'URL ảnh nền' },
+                      gif: { type: 'text', label: 'URL gif' },
+                }},  
+                buttonRadius: {
+                  type: 'custom',
+                  label: 'Chọn góc để bo tròn',
+                  render: MultiContainerRadiusFields
+
+                }
+              }
+            },   
+          },
+          getItemSummary: (item) => {
+            const title = item.title?.content || item.title || item.container?.title?.content || item.container?.title || '';
+            return `${title || 'Container'}`;
+          }
+        },
+      },
+
+      defaultProps: {
+        background: { type: 'color', color: '#FFFF00' },
+        headding: {
+          content: 'Tiêu đề',
+          color: '#000000',
+          level: 2,
+        },
+        subtitle: {
+          content: 'Văn bản',
+          color: '#000000',
+          level: 6,
+        },
+        container: [
+          {
+            title: {
+              content: 'Tiêu đề',
+              color: '#000000',
+              level: 2,
+            },
+            icon: {
+              type: 'image',
+              imageUrl: 'https://cdn-icons-png.flaticon.com/512/10221/10221159.png',
+              content: 'URL',
+              color: '#000000',
+              size: '5xl',
+            },
+            button: {
+              content: 'Văn bản',
+              url: '#',
+              colorText: '#000000',
+              level: 4,
+              buttonBg: {
+                type: 'color',
+                color: '#fde047',
+              },
+              buttonRadius: [],
+            },
+            containerRadius: [],
+          },
+        ],
+      },
+
+      render: (props) => <AdminMultipleContent {...props} />
     }
   },
 

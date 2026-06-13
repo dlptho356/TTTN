@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 // Text component — render đoạn văn bản.
 const AdminText = ({ content, align = 'left' }) => {

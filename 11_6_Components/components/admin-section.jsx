@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 // Section component — container có background, padding, và children (slot).
 const containerMap = { sm: '640px', md: '768px', lg: '1024px', xl: '1280px', '2xl': '1536px' };

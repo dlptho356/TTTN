@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 // Image component — render ảnh với URL, width, height, align.
 const AdminImage = ({ src, alt, width = '100%', height = 'auto', borderRadius = '0', align = 'center' }) => {

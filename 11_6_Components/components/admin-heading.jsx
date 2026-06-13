@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 // Heading component — render thẻ h1-h6.
 const AdminHeading = ({ content, level = 2, align = 'left' }) => {

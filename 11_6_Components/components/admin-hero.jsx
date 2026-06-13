@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 // Hero component — banner với title, subtitle, buttons.
 const AdminHero = ({ title, subtitle, buttons = [], background = {}, layout = {} }) => {

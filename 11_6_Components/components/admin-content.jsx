@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 export const ContainerRadiusFields = ({ value = [], onChange }) => {
   const sides = [
@@ -18,12 +18,13 @@ export const ContainerRadiusFields = ({ value = [], onChange }) => {
 
   return (
     <div>
-      <label className="font-semibold uppercase">
-          Chọn góc để bo tròn
-      </label>
+      <label className="font-semibold uppercase">Chọn góc để bo tròn</label>
       <div className="grid grid-cols-2 gap-2 mt-2">
         {sides.map((side) => (
-          <label key={side.class} className="flex items-center space-x-2 cursor-pointer p-1 hover:bg-gray-50 rounded">
+          <label
+            key={side.class}
+            className="flex items-center space-x-2 cursor-pointer p-1 hover:bg-gray-50 rounded"
+          >
             <input
               type="checkbox"
               checked={value.includes(side.class)}
@@ -38,16 +39,15 @@ export const ContainerRadiusFields = ({ value = [], onChange }) => {
   );
 };
 
-
 const AdminContent = (props) => {
   const { container = {}, background = {}, children } = props || {};
   const layout = container?.containerLayout || {};
   const eyebrow = container?.eyebrow || {};
   const headding = container?.headding || {};
   const subtitle = container?.subtitle || {};
-  const containerRadius = container?.containerRadius || []; 
+  const containerRadius = container?.containerRadius || [];
 
-  const button = container?.button || {}; 
+  const button = container?.button || {};
   const containerSideClasses = containerRadius.join(" ");
 
   const buttonRadius = container?.button?.buttonRadius || [];
@@ -107,7 +107,7 @@ const AdminContent = (props) => {
     }
 
     return { backgroundColor: btnbg.color || '#ffffff' };
-  }
+  };
 
   const sizeH = {
     1: 'text-5xl',
@@ -116,29 +116,52 @@ const AdminContent = (props) => {
     4: 'text-2xl',
     5: 'text-xl',
     6: 'text-lg',
-  }
+  };
 
   const align = {
     left: 'items-start',
     center: 'items-center',
-    right: 'items-end'
-  }
+    right: 'items-end',
+  };
 
   return (
-    <div className={`flex flex-col justify-center p-20 min-h-165 w-full  ${align[layout.align]}`} style={getBackgroundStyle()}>
-      <div className={`w-100 h-60 bg-[#ffffff1f] backdrop-blur-[30px] shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]  flex flex-col p-4 ${containerSideClasses}`}>
-        <p className={`px-4 my-3 ${sizeH[eyebrow.level]}`} style={{ color: eyebrow.color || '#000000', fontWeight: 'semi-bold' }}>
+    <div
+      className={`flex flex-col justify-center p-20 h-137.5 w-full ${align[layout.align]}`}
+      style={getBackgroundStyle()}
+    >
+      <div
+        className={`w-max md:w-100 h-60 bg-[#ffffff1f] backdrop-blur-[30px] shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] flex flex-col p-4 ${containerSideClasses}`}
+      >
+        <p
+          className={`px-4 my-3 ${sizeH[eyebrow.level]}`}
+          style={{ color: eyebrow.color || '#000000', fontWeight: 600 }}
+        >
           {eyebrow.content}
         </p>
-        <h1 className={`px-4 mb-3 ${sizeH[headding.level]}`} style={{ color: headding.color || '#000000', fontWeight: 'bold' }}>
+        <h1
+          className={`px-4 mb-3 ${sizeH[headding.level]}`}
+          style={{ color: headding.color || '#000000', fontWeight: 'bold' }}
+        >
           {headding.content}
         </h1>
-        <p className={`px-4 ${sizeH[subtitle.level]}`} style={{ color: subtitle.color || '#000000', fontWeight: 'semi-bold' }}>
+        <p
+          className={`px-4 ${sizeH[subtitle.level]}`}
+          style={{ color: subtitle.color || '#000000', fontWeight: 600 }}
+        >
           {subtitle.content}
         </p>
         <div className="w-full flex justify-center">
-          <button className={`px-4 w-33 h-13 ${sizeH[button.level]} ${buttonSideClasses}`} style={{ color: button.colorText || '#000000', fontWeight: 'semi-bold', ...getBtnBgStyle()}}>
-            {button.content}
+          <button
+            className={`px-4 w-33 h-13 ${sizeH[button.level]} ${buttonSideClasses}`}
+            style={{
+              color: button.colorText || '#000000',
+              fontWeight: 600,
+              ...getBtnBgStyle(),
+            }}
+          >
+            <a href={button.url || '#'}>
+              {button.content}
+            </a>
           </button>
         </div>
         {children}
@@ -148,5 +171,4 @@ const AdminContent = (props) => {
 };
 
 export default AdminContent;
-
 
