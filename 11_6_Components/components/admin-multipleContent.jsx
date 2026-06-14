@@ -43,6 +43,7 @@ const AdminMultipleContent = (props) => {
         subtitle,
         container = [],
         background = {},
+        button = {},
         children,
 
     } = props || {};
@@ -75,7 +76,9 @@ const AdminMultipleContent = (props) => {
 
         return { backgroundColor: bg.color || '#ffffff' };
     };
-    const getBtnBgStyle = (btnbg = {}) => {
+    const getBtnBgStyle = () => {
+        const btnbg = button?.buttonBg || {};
+
         if (btnbg.type === 'gradient') {
             return {
                 background: `linear-gradient(${btnbg.gradientDirection || 'to bottom right'}, ${btnbg.gradientFrom || '#667eea'}, ${btnbg.gradientTo || '#764ba2'})`,
@@ -98,7 +101,12 @@ const AdminMultipleContent = (props) => {
             };
         }
 
-        return { backgroundColor: btnbg.color || '#ffffff' };
+        return { 
+            backgroundColor: btnbg.color || '#fde047',
+            content: 'Văn bản',
+            url: '#',
+            colorText: '#000000',
+         };
     };
     const sizeH = {
         1: 'text-5xl',
@@ -108,30 +116,6 @@ const AdminMultipleContent = (props) => {
         5: 'text-xl',
         6: 'text-lg',
     };
-
-    // icon size/color options removed — icon will inherit container styles
-
-    const getTextValue = (value) => {
-        if (value == null) return '';
-        if (typeof value === 'string' || typeof value === 'number') return String(value);
-        if (Array.isArray(value)) return value.map(getTextValue).filter(Boolean).join(' ');
-        if (typeof value === 'object') {
-            const keys = ['content', 'text', 'title', 'label', 'value', 'name'];
-            for (const key of keys) {
-                if (value[key] != null) {
-                    const result = getTextValue(value[key]);
-                    if (result) return result;
-                }
-            }
-            for (const key of Object.keys(value)) {
-                const result = getTextValue(value[key]);
-                if (result) return result;
-            }
-        }
-        return '';
-    };
-
-    const defaultIcon = (Array.isArray(container) && container.length && container[0]?.icon) ? container[0].icon : { type: 'text', content: '★' };
 
     return (
         <div
@@ -159,39 +143,38 @@ const AdminMultipleContent = (props) => {
 
             <div className="flex flex-wrap justify-center gap-5">
                 {Array.isArray(container) && container.map((item, idx) => {
+                        
                         const containerRadius = item?.containerRadius || [];
-
                         const containerSideClasses = containerRadius.join(' ');
-                        const title = item?.title || item?.container?.title || item?.container || item || {};
-                        const iconData = item?.icon || item?.container?.icon || defaultIcon;
-                        const buttonData = item?.button || item?.container?.button || {};
-                        const button = {
-                            content: 'Văn bản',
-                            url: '#',
-                            colorText: '#000000',
-                            level: 4,
-                            buttonBg: { type: 'color', color: '#fde047' },
-                            buttonRadius: [],
-                            ...buttonData,
-                        };
+                        
+                        const title = item?.title;
+
+                        const rawIcon = item?.icon;
+                        const icon = {
+                            type: rawIcon?.type || 'image',
+                            imageUrl: rawIcon?.imageUrl || 'https://cdn-icons-png.flaticon.com/512/10221/10221159.png',
+                            content: rawIcon?.content || 'URL'
+                        }
+                        const button = item?.button;
+
 
                         return (
                             <div
                                 key={idx}
-                                className={`w-max md:w-85 h-50 bg-[#ffffff1f] backdrop-blur-[30px] shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] flex flex-col items-center justify-center p-4 ${containerSideClasses}`}
+                                className={`w-max md:w-85 h-50 bg-[#ffffff1f] backdrop-blur-[30px] shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] flex flex-col items-center justify-center p-4 overflow-hidden ${containerSideClasses}`}
                             >
-                                {iconData ? (
-                                    iconData.type === 'image' && iconData.imageUrl ? (
+                                {icon ? (
+                                    (icon.type === 'image' || !icon.type) ? (
                                         <div className="mb-3" style={{ backgroundColor: 'inherit' }}>
                                             <img
-                                                src={iconData.imageUrl}
-                                                alt={getTextValue(iconData.content) || 'icon'}
+                                                src={icon.imageUrl}
+                                                alt={(icon.content) || 'icon'}
                                                 className="h-16 w-16 object-contain"
                                             />
                                         </div>
                                     ) : (
                                         <div className="mb-3" style={{ backgroundColor: 'inherit', color: title?.color || '#000000' }}>
-                                            {getTextValue(iconData.content) }
+                                            {(icon.content)}
                                         </div>
                                     )
                                 ) : null}
@@ -199,23 +182,20 @@ const AdminMultipleContent = (props) => {
                                     className={`mb-3 ${sizeH[title?.level] || sizeH[2]}`}
                                     style={{ color: title?.color || '#000000', fontWeight: 'bold' }}
                                 >
-                                    {(() => {
-                                        const v = getTextValue(title?.content ?? title);
-                                        return v || 'Tiêu đề';
-                                    })()}
+                                    {title?.content || 'Tiêu đề'}
                                 </div>
 
 
                                 <button
-                                    className={`px-4 w-33 h-13 ${sizeH[button?.level]} ${button?.buttonRadius?.join?.(' ') || ''}`}
+                                    className={`px-4 w-33 h-13 ${sizeH[button?.level] || sizeH[4]} ${button?.buttonRadius?.join?.(' ') || ''}`}
                                     style={{
-                                        color: button?.colorText || '#000000',
+                                        color: button?.color || '#000000',
                                         fontWeight: 600,
                                         ...getBtnBgStyle(button?.buttonBg),
                                     }}
                                     type="button"
                                 >
-                                    <a href={button?.url || '#'}>{getTextValue(button?.content) || 'Văn bản'}</a>
+                                    <a href={button?.url || '#'}>{(button?.content) || 'Văn bản'}</a>
                                 </button>
 
 
@@ -223,7 +203,6 @@ const AdminMultipleContent = (props) => {
                         );
                     })}
             </div>
-
             {children}
         </div>
     );
