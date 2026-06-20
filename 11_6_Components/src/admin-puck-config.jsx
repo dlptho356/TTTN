@@ -7,7 +7,7 @@ import AdminHero from './components/admin-hero';
 import AdminContent, {ContainerRadiusFields} from './components/admin-content';
 import AdminMultipleContent, {MultiContainerRadiusFields} from './components/admin-multipleContent';
 import AdminaboutContent, {AboutContainerRadiusFields} from './components/admin-aboutContent';
-// import AdminHeader from './components/admin-header';
+import AdminHeader from './components/admin-header';
 //Config — đăng ký 5 components với fields + defaultProps + render.
 
 export const puckConfig = {
@@ -195,7 +195,156 @@ export const puckConfig = {
     },
 
     Header: {
+      label: 'Header',
+      fields: {
+        background: {
+          type: 'object',
+          label: 'Background',
+          objectFields: {
+            type: {
+              type: 'select',
+              label: 'Loại',
+              options: [
+                { label: 'Màu', value: 'color' },
+                { label: 'Gradient', value: 'gradient' },
+                { label: 'Ảnh', value: 'image' },
+                { label: 'Gif', value: 'gif' }
+              ]
+            },
+            color: { type: 'text', label: 'Màu nền', default: '#ffffff' },
+            gradientFrom: { type: 'text', label: 'Gradient từ', default: '#667eea' },
+            gradientTo: { type: 'text', label: 'Gradient đến', default: '#764ba2' },
+            gradientDirection: { type: 'text', label: 'Hướng', default: 'to bottom right' },
+            imageUrl: { type: 'text', label: 'URL ảnh nền' },
+            gif: { type: 'text', label: 'URL gif' }
+          }
+        },
 
+        logo: {
+          type: 'text',
+          label: 'Logo',
+        },
+
+        title1: {
+          type: 'object',
+          label: 'Tiêu đề 1',
+          objectFields: {
+            content: { type: 'text', label: 'Nội dung', contentEditable: true },
+            color: { type: 'text', label: 'Màu chữ'},
+            level: {
+              type: 'select',
+              label: 'Cấp độ',
+              options: [
+                { label: 'H1', value: 1 },
+                { label: 'H2', value: 2 },
+                { label: 'H3', value: 3 },
+                { label: 'H4', value: 4 },
+                { label: 'H5', value: 5 },
+                { label: 'H6', value: 6 },
+              ],
+            },
+          }
+        },
+
+        title2: {
+          type: 'object',
+          label: 'Tiêu đề 2',
+          objectFields: {
+            content: { type: 'text', label: 'Nội dung', contentEditable: true },
+            color: { type: 'text', label: 'Màu chữ', default: '#000000' },
+            level: {
+              type: 'select',
+              label: 'Cấp độ',
+              options: [
+                { label: 'H1', value: 1 },
+                { label: 'H2', value: 2 },
+                { label: 'H3', value: 3 },
+                { label: 'H4', value: 4 },
+                { label: 'H5', value: 5 },
+                { label: 'H6', value: 6 },
+              ],
+            },
+          }
+        },
+
+        navbar: {
+          type: 'array',
+          label: 'Thanh Nav bar',
+          arrayFields: {
+            content: { type: 'text', label: 'Nội dung', contentEditable: true },
+            color: {type: 'text', label: 'Màu chữ'},
+            url: {type: 'text', label: 'URL'},
+            level: {
+              type: 'select',
+              label: 'Cấp độ',
+              options: [
+                { label: 'H1', value: 1 },
+                { label: 'H2', value: 2 },
+                { label: 'H3', value: 3 },
+                { label: 'H4', value: 4 },
+                { label: 'H5', value: 5 },
+                { label: 'H6', value: 6 },
+              ],
+            },
+          },
+          getItemSummary: (item) => {
+            const content = item.navbar?.content || item.content ||'';
+            return `${content || 'Nav components'}`;
+          }
+        }
+      },
+      defaultProps: {
+        logo: {text: 'https://webdemo.hexagon.xyz/medias/logo%202.png', },
+        title1: {
+          content: 'CÂU LẠC BỘ DOANH NHÂN ĐỒNG THÁP', 
+          color:'#FFFFFF', 
+          level: 6
+        },
+        title2: {
+          content: 'TẠI TP. HỒ CHÍ MINH', 
+          color:'#FFFFFF', 
+          level: 6
+        },
+        navbar: [
+          {
+            content: 'Trang chủ',
+            color: '#FFFFFF',
+            level: 6,
+            url: '#'
+          },
+          {
+            content: 'Giới thiệu',
+            color: '#FFFFFF',
+            level: 6,
+            url: '#'
+          },
+          {
+            content: 'Hội viên',
+            color: '#FFFFFF',
+            level: 6,
+            url: '#'
+          },
+          {
+            content: 'Hoạt động Ban',
+            color: '#FFFFFF',
+            level: 6,
+            url: '#'
+          },
+          {
+            content: 'Tin tức & Sự kiện',
+            color: '#FFFFFF',
+            level: 6,
+            url: '#'
+          },
+          {
+            content: 'Liên hệ',
+            color: '#FFFFFF',
+            level: 6,
+            url: '#'
+          }
+        ]
+      },
+      render: (props) => <AdminHeader {...props} />
     },
 
     Content: {
