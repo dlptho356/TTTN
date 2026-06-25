@@ -20,6 +20,8 @@ import AdminNewsContent from "./components/admin-NewsContent";
 import AdminSectionComunity from "./components/admin-sectionComunity";
 import AdminRegister from "./components/admin-Register";
 import AdminFooter from "./components/admin-footer";
+import AdminIntroduce from "./components/admin-introduce";
+import AdminMembers from "./components/admin-members";
 //Config — đăng ký 5 components với fields + defaultProps + render.
 
 export const puckConfig = {
@@ -685,9 +687,7 @@ export const puckConfig = {
             level: 6,
             buttonRadius: [
               "rounded-tr-[100px]",
-              "rounded-br-[100px]",
               "rounded-bl-[100px]",
-              "rounded-tl-[100px]",
             ],
             buttonBg: {
               type: "color",
@@ -2160,7 +2160,7 @@ export const puckConfig = {
 
     Register: {
       label: "Section Đăng ký",
-      Fields: {
+      fields: {
         background: {
           type: "object",
           label: "Background",
@@ -2217,7 +2217,7 @@ export const puckConfig = {
           label: "Nút liên hệ",
           arrayFields: {
             icon: { type: "text", label: "Url Icon" },
-            content: { type: "text", label: "Địa chỉ liên hệ" },
+            content: { type: "text", label: "Địa chỉ liên hệ", contentEditable: true  },
             url: { type: "text", label: "Link URL" },
           },
         },
@@ -2225,12 +2225,12 @@ export const puckConfig = {
           type: "object",
           label: "Nút đăng ký",
           objectFields: {
-            content: "text",
-            color: "text",
-            backgroundColor: {
+            content: { type: "text", label: "Nội dung", contentEditable: true },
+            color: { type: "text", label: "Màu chữ", contentEditable: true },
+            background: {
               type: "object",
               label: "Background",
-              objectFields: {
+              objectFields: { 
                 type: {
                   type: "select",
                   label: "Loại",
@@ -2303,7 +2303,7 @@ export const puckConfig = {
 
     Footer: {
       label: "Footer",
-      Fields: {
+      fields: {
         background: {
           type: "object",
           label: "Background",
@@ -2340,8 +2340,9 @@ export const puckConfig = {
         },
 
         address: {
-          lable: "Cột địa chỉ",
-          fields: {
+          label: "Cột địa chỉ",
+          type: 'object',
+          objectFields: {
             title1: {
               type: "object",
               label: "Tiêu đề 1",
@@ -2395,16 +2396,25 @@ export const puckConfig = {
               label: "Logo",
             },
             gps: {
-              content: { type: "text", contentEditable: true },
-              logo: { type: "text" },
+              type: 'object',
+              objectFields: {
+                content: { type: "text", contentEditable: true },
+                logo: { type: "text" },
+              }
             },
             email: {
-              content: { type: "text", contentEditable: true },
-              logo: { type: "text", contentEditable: true },
+              type: 'object',
+              objectFields: {
+                content: { type: "text", contentEditable: true },
+                logo: { type: "text" },
+              }
             },
             phone: {
-              content: { type: "text", contentEditable: true },
-              logo: { type: "text" },
+              type: 'object',
+              objectFields: {
+                content: { type: "text", contentEditable: true },
+                logo: { type: "text" },
+              }
             },
           },
         },
@@ -2421,13 +2431,13 @@ export const puckConfig = {
               type: "array",
               label: "Danh sách",
               arrayFields: {
-                content: "text",
-                contentEditable: true,
-                url: "text",
+                content: {type: "text", contentEditable: true},
+                url: {type: "text"}
               },
             },
           },
         },
+
         elseCol: {
           label: "Cột khác",
           type: "object",
@@ -2440,9 +2450,8 @@ export const puckConfig = {
               type: "array",
               label: "Danh sách",
               arrayFields: {
-                content: "text",
-                contentEditable: true,
-                url: "text",
+                content: {type: "text", contentEditable: true},
+                url: {type: "text"}
               },
             },
           },
@@ -2554,6 +2563,647 @@ export const puckConfig = {
       },
 
       render: (props) => <AdminFooter {...props} />,
+    },
+
+    Introduce: {
+      label: "Section Giới thiệu",
+      fields: {
+        background: {
+          type: "object",
+          label: "Background",
+          objectFields: {
+            type: {
+              type: "select",
+              label: "Loại",
+              options: [
+                { label: "Màu", value: "color" },
+                { label: "Gradient", value: "gradient" },
+                { label: "Ảnh", value: "image" },
+                { label: "Gif", value: "gif" },
+              ],
+            },
+            color: { type: "text", label: "Màu nền", default: "#ffffff" },
+            gradientFrom: {
+              type: "text",
+              label: "Gradient từ",
+              default: "#667eea",
+            },
+            gradientTo: {
+              type: "text",
+              label: "Gradient đến",
+              default: "#764ba2",
+            },
+            gradientDirection: {
+              type: "text",
+              label: "Hướng",
+              default: "to bottom right",
+            },
+            imageUrl: { type: "text", label: "URL ảnh nền" },
+            gif: { type: "text", label: "URL gif" },
+          },
+        },
+
+        title: {
+          type: "object",
+          label: "Tiêu đề 1",
+          objectFields: {
+            content: {
+              type: "text",
+              label: "Nội dung",
+              contentEditable: true,
+            },
+            color: { type: "text", label: "Màu chữ" },
+            level: {
+              type: "select",
+              label: "Cấp độ",
+              options: [
+                { label: "H1", value: 1 },
+                { label: "H2", value: 2 },
+                { label: "H3", value: 3 },
+                { label: "H4", value: 4 },
+                { label: "H5", value: 5 },
+                { label: "H6", value: 6 },
+              ],
+            },
+          },
+        },
+
+        container: {
+          label: 'Ô nội dung',
+          type: 'object',
+          objectFields: {
+            title: {
+              type: "object",
+              label: "Tiêu đề 1",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ" },
+                level: {
+                  type: "select",
+                  label: "Cấp độ",
+                  options: [
+                    { label: "H1", value: 1 },
+                    { label: "H2", value: 2 },
+                    { label: "H3", value: 3 },
+                    { label: "H4", value: 4 },
+                    { label: "H5", value: 5 },
+                    { label: "H6", value: 6 },
+                  ],
+                },
+              },
+            },
+            subtitle1: {
+              type: "object",
+              label: "Tiêu đề",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ", default: "#000000" },
+              },
+            },
+            subtitle2: {
+              type: "object",
+              label: "Tiêu đề",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ", default: "#000000" },
+              },
+            },
+            highlightCont: { 
+              type: "object", 
+              label: "Highlight Contain",
+              objectFields: {
+                paragraph1: {
+                  type: "object",
+                  label: "Văn bản",
+                  objectFields: {
+                    keyword: {
+                      type: "text",
+                      label: "Nội dung",
+                      contentEditable: true,
+                    },
+                    content: {
+                      type: "text",
+                      label: "Nội dung",
+                      contentEditable: true,
+                    },
+                  },
+                },
+                paragraph2: {
+                  type: "object",
+                  label: "Văn bản",
+                  objectFields: {
+                    keyword: {
+                      type: "text",
+                      label: "Nội dung",
+                      contentEditable: true,
+                    },
+                    content: {
+                      type: "text",
+                      label: "Nội dung",
+                      contentEditable: true,
+                    },
+                  },
+                },
+              }
+            }
+          }
+        },
+
+        numbersContainer: {
+          type: "array",
+          label: "Numbers",
+          arrayFields: {
+            number: {
+              type: "object",
+              label: "Số",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ" },
+                level: {
+                  type: "select",
+                  label: "Cấp độ",
+                  options: [
+                    { label: "H1", value: 1 },
+                    { label: "H2", value: 2 },
+                    { label: "H3", value: 3 },
+                    { label: "H4", value: 4 },
+                    { label: "H5", value: 5 },
+                    { label: "H6", value: 6 },
+                  ],
+                },
+              },
+            },
+            subtitle: {
+              type: "object",
+              label: "Số",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ" },
+                level: {
+                  type: "select",
+                  label: "Cấp độ",
+                  options: [
+                    { label: "H1", value: 1 },
+                    { label: "H2", value: 2 },
+                    { label: "H3", value: 3 },
+                    { label: "H4", value: 4 },
+                    { label: "H5", value: 5 },
+                    { label: "H6", value: 6 },
+                  ],
+                },
+              },
+            },
+          },
+          getItemSummary: (item) => {
+            const number =
+              item.number?.content ||
+              item.number ||
+              item.container?.number?.content ||
+              item.container?.number ||
+              "";
+            return `${number || "number"}`;
+          },
+        },
+      },
+      defaultProps: {
+        background: {
+          type: 'color',
+          color: '#FFFFFF'
+        },
+        
+        title: {
+          content: 'GIỚI THIỆU DOANH NHÂN ĐỒNG THÁP',
+          color: '#0f5b94',
+          level: 2,
+        },
+
+        container: {
+          title: {
+            content: 'Kết nối - Đồng hành - Phát triển',
+            color: '#0f5b94',
+            level: 3
+          },
+          subtitle1: {
+            content: 'Cộng đồng Doanh nhân Đồng Tháp hướng đến việc xây dựng môi trường kết nối giữa các doanh nghiệp, thúc đẩy hợp tác và tạo ra nhiều giá trị bền vững cho địa phương.',
+            color: '#555',
+          },
+          subtitle2: {
+            content: 'Với tinh thần đổi mới, sáng tạo và phát triển lâu dài, cộng đồng doanh nhân luôn đóng vai trò quan trọng trong việc thúc đẩy kinh tế, hỗ trợ khởi nghiệp và nâng cao năng lực cạnh tranh.',
+            color: '#555',
+          },
+          highlightCont: {
+            paragraph1: {
+              keyword: 'Tầm nhìn: ',
+              content: 'Xây dựng mạng lưới doanh nhân năng động, hiện đại và hội nhập.'
+            },
+            paragraph2: {
+              keyword: "Sứ mệnh: ",
+              content: 'Kết nối doanh nghiệp - chia sẻ tri thức - tạo giá trị phát triển bền vững.'
+            }
+          }
+        },
+
+        numbersContainer: [
+          {
+            number: {
+              content: "500+",
+              color: "#0b2540",
+              level: 1,
+            },
+
+            subtitle: {
+              content:
+                "Doanh nghiệp tham gia",
+              color: "#666",
+              level: 6,
+            },
+          },
+          {
+            number: {
+              content: "50+",
+              color: "#0b2540",
+              level: 1,
+            },
+
+            subtitle: {
+              content:
+                "Sự kiện kết nối mỗi năm",
+              color: "#666",
+              level: 6,
+            },
+          },
+          {
+            number: {
+              content: "100%",
+              color: "#0b2540",
+              level: 1,
+            },
+
+            subtitle: {
+              content:
+                "Hướng đến phát triển bền vững",
+              color: "#666",
+              level: 6,
+            },
+          },
+        ],  
+      },
+
+      render: (props) => <AdminIntroduce {...props} />,
+    },
+
+    Members: {
+      label: "Section Hội viên",
+      fields: {
+        background: {
+          type: "object",
+          label: "Background",
+          objectFields: {
+            type: {
+              type: "select",
+              label: "Loại",
+              options: [
+                { label: "Màu", value: "color" },
+                { label: "Gradient", value: "gradient" },
+                { label: "Ảnh", value: "image" },
+                { label: "Gif", value: "gif" },
+              ],
+            },
+            color: { type: "text", label: "Màu nền", default: "#ffffff" },
+            gradientFrom: {
+              type: "text",
+              label: "Gradient từ",
+              default: "#667eea",
+            },
+            gradientTo: {
+              type: "text",
+              label: "Gradient đến",
+              default: "#764ba2",
+            },
+            gradientDirection: {
+              type: "text",
+              label: "Hướng",
+              default: "to bottom right",
+            },
+            imageUrl: { type: "text", label: "URL ảnh nền" },
+            gif: { type: "text", label: "URL gif" },
+          },
+        },
+
+        title: {
+          type: "object",
+          label: "Tiêu đề 1",
+          objectFields: {
+            content: {
+              type: "text",
+              label: "Nội dung",
+              contentEditable: true,
+            },
+            color: { type: "text", label: "Màu chữ" },
+            level: {
+              type: "select",
+              label: "Cấp độ",
+              options: [
+                { label: "H1", value: 1 },
+                { label: "H2", value: 2 },
+                { label: "H3", value: 3 },
+                { label: "H4", value: 4 },
+                { label: "H5", value: 5 },
+                { label: "H6", value: 6 },
+              ],
+            },
+          },
+        },
+
+        container: {
+          label: 'Ô nội dung',
+          type: 'object',
+          objectFields: {
+            title: {
+              type: "object",
+              label: "Tiêu đề 1",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ" },
+                level: {
+                  type: "select",
+                  label: "Cấp độ",
+                  options: [
+                    { label: "H1", value: 1 },
+                    { label: "H2", value: 2 },
+                    { label: "H3", value: 3 },
+                    { label: "H4", value: 4 },
+                    { label: "H5", value: 5 },
+                    { label: "H6", value: 6 },
+                  ],
+                },
+              },
+            },
+            subtitle1: {
+              type: "object",
+              label: "Tiêu đề",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ", default: "#000000" },
+              },
+            },
+            subtitle2: {
+              type: "object",
+              label: "Tiêu đề",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ", default: "#000000" },
+              },
+            },
+            highlightCont: { 
+              type: "object", 
+              label: "Highlight Contain",
+              objectFields: {
+                title: {
+                  type: "object",
+                  label: "Tiêu đề",
+                  objectFields: {
+                    content: {
+                      type: "text",
+                      label: "Nội dung",
+                      contentEditable: true,
+                    },
+                    color: { type: "text", label: "Màu chữ" },
+                    level: {
+                      type: "select",
+                      label: "Cấp độ",
+                      options: [
+                        { label: "H1", value: 1 },
+                        { label: "H2", value: 2 },
+                        { label: "H3", value: 3 },
+                        { label: "H4", value: 4 },
+                        { label: "H5", value: 5 },
+                        { label: "H6", value: 6 },
+                      ],
+                    },
+                  },
+                },
+                li: {
+                  type: "array",
+                  label: "Danh sách",
+                  arrayFields: {
+                    content: {type: "text", contentEditable: true},
+                  },
+                },
+              }
+            }
+          }
+        },
+
+        numbersContainer: {
+          type: "array",
+          label: "Numbers",
+          arrayFields: {
+            number: {
+              type: "object",
+              label: "Số",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ" },
+                level: {
+                  type: "select",
+                  label: "Cấp độ",
+                  options: [
+                    { label: "H1", value: 1 },
+                    { label: "H2", value: 2 },
+                    { label: "H3", value: 3 },
+                    { label: "H4", value: 4 },
+                    { label: "H5", value: 5 },
+                    { label: "H6", value: 6 },
+                  ],
+                },
+              },
+            },
+            subtitle: {
+              type: "object",
+              label: "Số",
+              objectFields: {
+                content: {
+                  type: "text",
+                  label: "Nội dung",
+                  contentEditable: true,
+                },
+                color: { type: "text", label: "Màu chữ" },
+                level: {
+                  type: "select",
+                  label: "Cấp độ",
+                  options: [
+                    { label: "H1", value: 1 },
+                    { label: "H2", value: 2 },
+                    { label: "H3", value: 3 },
+                    { label: "H4", value: 4 },
+                    { label: "H5", value: 5 },
+                    { label: "H6", value: 6 },
+                  ],
+                },
+              },
+            },
+          },
+          getItemSummary: (item) => {
+            const number =
+              item.number?.content ||
+              item.number ||
+              item.container?.number?.content ||
+              item.container?.number ||
+              "";
+            return `${number || "number"}`;
+          },
+        },
+      },
+      defaultProps: {
+        background: {
+          type: 'color',
+          color: '#FFFFFF'
+        },
+        
+        title: {
+          content: 'HỘI VIÊN',
+          color: '#0f5b94',
+          level: 2,
+        },
+
+        container: {
+          title: {
+            content: 'Cộng đồng doanh nhân cùng phát triển',
+            color: '#0f5b94',
+            level: 3
+          },
+          subtitle1: {
+            content: 'Hội viên là lực lượng nòng cốt tạo nên sự kết nối, chia sẻ và phát triển trong cộng đồng doanh nghiệp Đồng Tháp.',
+            color: '#555',
+          },
+          subtitle2: {
+            content: 'Việc tham gia hội viên mở ra cơ hội mở rộng mạng lưới, trao đổi kinh nghiệm, tiếp cận chương trình hỗ trợ và đồng hành trong các hoạt động xúc tiến thương mại.',
+            color: '#555',
+          },
+          highlightCont: {
+              title: {
+                content: 'Quyền lợi hội viên',
+                color: '#0F5B94',
+                level: 5
+              },
+              li: [
+                {
+                  content: 'Tham gia các chương trình kết nối doanh nghiệp'
+                },
+                {
+                  content: 'Tiếp cận hoạt động đào tạo và hội thảo chuyên đề'
+                },
+                {
+                  content: 'Nhận thông tin thị trường và cơ hội hợp tác'
+                },
+                {
+                  content: 'Tham gia các hoạt động cộng đồng doanh nhân'
+                },
+                {
+                  content: 'Đồng hành cùng các chương trình phát triển địa phương'
+                },
+              ]
+          }
+        },
+
+        numbersContainer: [
+          {
+            number: {
+              content: "800+",
+              color: "#0b2540",
+              level: 1,
+            },
+
+            subtitle: {
+              content:
+                "Hội viên",
+              color: "#666",
+              level: 6,
+            },
+          },
+          {
+            number: {
+              content: "120+",
+              color: "#0b2540",
+              level: 1,
+            },
+
+            subtitle: {
+              content:
+                "Đối tác",
+              color: "#666",
+              level: 6,
+            },
+          },
+          {
+            number: {
+              content: "40+",
+              color: "#0b2540",
+              level: 1,
+            },
+
+            subtitle: {
+              content:
+                "Sự kiện / năm",
+              color: "#666",
+              level: 6,
+            },
+          },
+          {
+            number: {
+              content: "12",
+              color: "#0b2540",
+              level: 1,
+            },
+
+            subtitle: {
+              content:
+                "Nhóm kết nối",
+              color: "#666",
+              level: 6,
+            },
+          },
+        ],  
+      },
+
+      render: (props) => <AdminMembers {...props} />,
     },
   },
 

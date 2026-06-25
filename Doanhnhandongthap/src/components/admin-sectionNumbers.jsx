@@ -62,7 +62,6 @@ const sectionNumbers = (props) => {
                 <div
                   key={idx}
                   className="flex flex-col items-center justify-center"
-                  style={{}}
                 >
                   <CountUpNumb
                     contentNumber={item?.number?.content}

@@ -173,7 +173,7 @@ const AdminContent = (props) => {
         </p>
         <div className="w-full flex justify-center my-5">
           <button
-            className={`px-10 w-auto h-15 cursor-pointer text-wrap ${sizeH[button.level]} ${buttonSideClasses} transition-all  :hover-translate-y-[3px] hover:shadow-[0_15px_35px_rgba(0,114,255,0.55)] `}
+            className={`px-10 w-auto h-15 cursor-pointer text-wrap ${sizeH[button.level]} ${buttonSideClasses} transition-all hover:-translate-y-0.75 hover:shadow-[0_15px_35px_rgba(0,114,255,0.55)] `}
             style={{
               color: button.colorText || "#FFFFFF",
               fontWeight: 600,
