@@ -1,0 +1,47 @@
+{
+  "content": [
+    {
+      "type": "NewProduct",
+      "props": {
+        "background": {
+          "type": "color",
+          "color": "#ffffff"
+        },
+        "products": [
+          {
+            "url": "/Product/snack-vi-bap.jpg.webp",
+            "subtitle": {
+              "content": "Snack vị bắp",
+              "color": "#f4851a",
+              "level": 6
+            }
+          },
+          {
+            "url": "/Product/snack-vi-bbq.jpg.webp",
+            "subtitle": {
+              "content": "Snack BBQ",
+              "color": "#f4851a",
+              "level": 6
+            }
+          },
+          {
+            "url": "/Product/snack-vi-pho-mai.webp",
+            "subtitle": {
+              "content": "Snack phô mai",
+              "color": "#f4851a",
+              "level": 6
+            }
+          },
+          {
+            "url": "/Product/snack-vi-tao-bien.jpg.webp",
+            "subtitle": {
+              "content": "Snack tảo biển",
+              "color": "#f4851a",
+              "level": 6
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
