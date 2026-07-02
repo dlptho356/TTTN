@@ -21,10 +21,10 @@ const HeaderContent = ({
               style={{ color: item?.color }}
               className={`relative pb-1 after:transiton-all after:duration-300 ease-in-out hover:after:content-[''] hover:after:absolute hover:after:left-0 hover:after:-bottom-1 hover:after:h-1 hover:after:w-full hover:after:bg-[#f4851a]  
                 ${
-                webpath === item?.url
-                  ? "after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1  after:bg-[#f4851a]"
-                  : ""
-              }`}
+                  webpath === item?.url
+                    ? "after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1  after:bg-[#f4851a]"
+                    : ""
+                }`}
             >
               {item?.content}
             </a>
@@ -56,7 +56,11 @@ const HeaderContent = ({
         <div className="flex flex-row md:px-40 items-center justify-center ">
           <div className="flex flex-col w-87.5 mr-7.5 h-25 justify-center">
             <a href="#" className="block" title="Metik - Chạm mê tít">
-              <img src={logo} alt="Metik logo" className="md:w-62.5 md:h-25 w-30 h-15" />
+              <img
+                src={logo}
+                alt="Metik logo"
+                className="md:w-62.5 md:h-25 w-30 h-15"
+              />
             </a>
           </div>
 
@@ -120,9 +124,9 @@ const HeaderContent = ({
                   <ul className="flex flex-col md:gap-4">
                     {Array.isArray(navBar) &&
                       navBar.map((item, idx) => (
-                        <li 
-                        key={idx}
-                        className="hover:bg-[#0000000d] py-3 border-t border-[#ececec]"
+                        <li
+                          key={idx}
+                          className="hover:bg-[#0000000d] py-3 border-t border-[#ececec]"
                         >
                           <a
                             href={item?.url}

@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+
+.scroll-fade-item {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-fade-item.scroll-visible {
+  opacity: 1;
+}
+
+.scroll-fade-item.scroll-hidden {
+  opacity: 0;
+}

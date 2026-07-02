@@ -1,7 +1,9 @@
-const AdminProduct = (props) => {
-  const { background = {}, products = [], title = {} } = props || {};
-
-  const finalProducts = Array.isArray(products) ? products : [];
+const AdminProductPage = (props) => {
+  const {
+    background = {},
+    breadcrumb = [],
+    products = [],
+  } = props || {};
 
   const getBackgroundStyle = () => {
     const bg = background || {};
@@ -30,6 +32,7 @@ const AdminProduct = (props) => {
 
     return { backgroundColor: bg.color || "#ffffff" };
   };
+
   const sizeH = {
     1: "text-5xl",
     2: "text-4xl",
@@ -38,24 +41,32 @@ const AdminProduct = (props) => {
     5: "text-xl",
     6: "text-lg",
   };
+
   return (
-    <div
-      className="flex flex-col justify-center items-center p-10"
-      style={getBackgroundStyle()}
-    >
-      <div className="flex flex-col justify-center w-[80%]">
-        <div className="relative h-12.5 w-100 flex items-center">
-          <div className="absolute w-50 h-3.75 bg-[#ffd000] top-6.5 left-10"></div>
-          <p
-            className={`absolute font-bold  ${sizeH[title?.level]}`}
-            style={{ color: title?.color }}
-          >
-            {title?.content}
-          </p>
-        </div>
-        <div className="flex gap-5 items-center justify-center">
-          {Array.isArray(finalProducts) &&
-            finalProducts.map((item, idx) => (
+    <div className="flex flex-col justify-center items-center p-10" style={getBackgroundStyle()}>
+      <div className="w-[80%]">
+        {Array.isArray(breadcrumb) && breadcrumb.length > 0 && (
+          <div className="mb-6 text-sm text-gray-500">
+            {breadcrumb.map((item, idx) => {
+              const text = item && typeof item === "object" ? item.content || item.label || "" : item;
+              return (
+                <span key={idx}>
+                  <span className={idx === breadcrumb.length - 1 ? "font-semibold text-gray-900" : ""}>
+                    <a 
+                    href={item?.url || "#"}
+                    className="hover:text-gray-900"
+                    >{text}</a>
+                  </span>
+                  {idx < breadcrumb.length - 1 && <span className="px-2">/</span>}
+                </span>
+              );
+            })}
+          </div>
+        )}
+
+        <div className="md:flex gap-5 justify-center grid grid-cols-2">
+          {Array.isArray(products) &&
+            products.map((item, idx) => (
               <div
                 key={idx}
                 className="w-70 h-auto items-center justify-center group overflow-hidden shadow-[0_1px_3px_-2px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.24)] hover:shadow-[0_3px_6px_-4px_rgba(0,0,0,0.16),0_3px_6px_rgba(0,0,0,0.23)]"
@@ -83,4 +94,4 @@ const AdminProduct = (props) => {
   );
 };
 
-export default AdminProduct;
+export default AdminProductPage;

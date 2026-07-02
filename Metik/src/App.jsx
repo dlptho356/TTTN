@@ -2,9 +2,7 @@ import { useState } from "react";
 import { Puck, Render } from "@measured/puck";
 import puckConfig from "./admin-puck-config";
 
-
 import "./App.css";
-
 
 function App() {
   const [pageData, setPageData] = useState({
@@ -12,7 +10,6 @@ function App() {
   });
 
   const [preview, setPreview] = useState(false);
-
 
   if (preview) {
     return (
