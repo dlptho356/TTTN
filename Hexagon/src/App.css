@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+  --animate-gradient-flow: gradientMove 6s ease infinite;
+
+  @keyframes gradientMove {
+    0%,
+    100% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 0% 100%;
+    }
+  }
+  @keyframes marquee {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+}

@@ -125,7 +125,7 @@ const AdminHeader = (props) => {
 
   return (
     <header
-      className={`h-20 w-full z-50 fixed top-0 left-0 flex items-center justify-center transition-colors duration-300`}
+      className={`h-20 w-full z-50 fixed top-0 left-0 flex items-center justify-center transition-colors duration-300 backdrop-blur-xl`}
       style={getBackgroundStyle()}
     >
       <nav className="h-20 w-full flex items-center justify-between py-2 px-15">

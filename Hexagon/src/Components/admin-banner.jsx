@@ -52,6 +52,7 @@ const AdminBanner = (props) => {
 
     return { backgroundColor: bg.color || "#ffffff" };
   };
+  
   const getBtnBgStyle = (item) => {
     const btnbg = item?.buttonBg || {};
 
