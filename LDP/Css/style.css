@@ -340,8 +340,8 @@
 
 .modal-close-btn {
     position: absolute;
-    top: 66px;
-    right: -115px;
+    top: 80px;
+    right: -156px;
     width: 60px;
     height: 60px;
     opacity: 0.95;
@@ -349,6 +349,7 @@
     pointer-events: auto;
     background: none;
 }
+
 
 .modal-close-btn-thanhcong{
     position: absolute;

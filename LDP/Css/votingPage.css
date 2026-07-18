@@ -1,0 +1,375 @@
+
+/* Thanh nav bar */
+.bg-nav {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.bg-nav::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+
+    width: 80%;
+
+    height: 100%;
+
+    background-image: url('../Asset/TN/khungdautrang.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-nav > * {
+    position: relative;
+    z-index: 1;
+}
+
+.nav-btn {
+    transition: all 0.3s ease-out; 
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    filter: brightness(0.9) hue-rotate(55deg) saturate(1);
+}
+
+.nav-btn-div{
+    transition: transform 0.4s ease-out;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-btn-div .nav-btn-main{
+    transition: opacity 0.35s ease, filter 0.35s ease, transform 0.35s ease;
+    display: block;
+    filter: hue-rotate(0deg) saturate(1) brightness(1) contrast(1);
+}
+
+.nav-btn-div:hover .nav-btn-main{
+    opacity: 0.95 !important;
+    filter: hue-rotate(-50deg) saturate(1.3) brightness(1) contrast(0.9) !important;
+}
+
+
+/* Danh sách thí sinh */
+.dsts{
+    width: 560px;
+    height: 130px;
+}
+
+.dropdown-bg{
+    background-image: url('/Asset/TN/box.png');
+    background-size: 100% 100%;
+    background-color: none;
+    background-repeat: no-repeat;
+    min-height: 35px;
+    object-fit: cover;
+    color: white !important;
+    width: 100%;
+    transition: all;
+    transition-duration: 300ms;
+
+    background-color: transparent !important; 
+    border: none !important;                  
+    outline: none !important;                
+    box-shadow: none !important;
+}
+
+.dropdown-bg:hover{
+    filter: 
+        drop-shadow(0 0 4px rgba(255, 255, 255, 0.8))   
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+
+}
+
+.seacrh{
+    background-image: url('/Asset/TN/box\ trắng.png');
+    background-color: none;
+    background-repeat: no-repeat;
+    min-height: 35px;
+    object-fit: cover;
+    width: 26%;
+    z-index: inherit;
+
+    background-color: transparent !important; 
+    border: none !important;                  
+    outline: none !important;                
+    box-shadow: none !important;
+}
+
+.seacrh-input{
+    width: 90%;
+    background-color: transparent !important; 
+    border: none !important;                  
+    outline: none !important;                
+    box-shadow: none !important;
+    outline: none;
+    border: none;
+}
+
+.seacrh-input::placeholder{
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #1F46B4;
+}
+
+.ds-thisinh{
+    background-image: url('../Asset/TN/card.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 100% 100%;
+    min-height: 330px;
+    cursor: pointer;
+    transition: all;
+    transition-duration: 300ms;
+    
+    
+}
+
+.ds-thisinh:hover{
+    filter: 
+        drop-shadow(0 0 4px rgba(255, 255, 255, 0.8))   
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+
+}
+
+.xephang{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+
+    bottom: 93px;
+    left: 5px;
+}
+
+.text-number-left{
+    position: absolute;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
+
+    bottom: 80px;
+    left: 40px;
+}
+
+.hoa{
+    position: absolute;
+    width: 26px;
+    height: 26px;
+
+    bottom: 93px;
+    right: 18px;
+}
+
+.text-number-right{
+    position: absolute;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
+
+    bottom: 80px;
+    right: 50px;
+}
+
+.text-name{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #FFE779;
+}
+
+.text-server{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
+}
+
+/* Pop up */
+
+#modalHoaFree {
+    background-image: url('../Asset/TN/popup_nhanhoafree.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    overflow: hidden;
+    background-size: 60% 100%;
+    min-height: 680px;
+}
+
+#Thongtinthisinh {
+    background-image: url('../Asset/TN/pop\ up_thongtinthising.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 80% 100%;
+}
+
+#tanghoa{
+    background-image: url('../Asset/TN/popup_thongbao.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+#lichsu{
+    background-image: url('../Asset/TN/popup_lichsu.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.modal-close-btn-thongtin {
+    position: absolute;
+    top: 65px;
+    right: -88px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.95;
+    z-index: 2055;
+    pointer-events: auto;
+    background: none;
+}
+
+.modal-close-btn-lichsu{
+    position: absolute;
+    top: 225px;
+    right: 95px;
+    width: 30px;
+    height: 30px;
+    opacity: 0.95;
+    z-index: 2055;
+    pointer-events: auto;
+    background: none;
+}
+
+.modal-dialog-config{
+    max-width: 1000px;
+}
+
+.small-pic{
+    width: 163px;
+    height: auto;
+}
+
+.boxsohoa{
+    background-image: url('../Asset/TN/boxsohoa.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 100% 100%;
+    width: 300px;
+    height: 100px;
+    position: relative;
+}
+
+
+.sohoa{
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+
+}
+
+.hoa-popup{
+    width: 35px;
+    height: 35px;
+}
+
+.hang{
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+}
+
+.xephang-popup{
+    width: 25px;
+    height: 25px;
+}
+
+.thanhcongtru{
+    background-image: url('../Asset/TN/tihanh+-.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 100% 100%;
+    width: 200px;
+    height: 30px;
+}
+
+.thanhcongtru button{
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding-inline: 12px;
+}
+
+.max{
+    background-image: url('../Asset/TN/buttonmax.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 100% 100%;
+    width: 60px;
+    height: 30px;
+}
+
+.max button{
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.button-tanghoa{
+    background-image: url('../Asset/TN/buttontanghoa.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 100% 100%;
+    width: 160px;
+    height: 50px;
+}
+
+.button-tanghoa button{
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.button-lichsutang{
+    background-image: url('../Asset/TN/buttonlstang.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 100% 100%;
+    width: 160px;
+    height: 50px;
+}
+
+.button-lichsutang button{
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
