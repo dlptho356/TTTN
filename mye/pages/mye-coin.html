@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyE Coin | MyE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../src/asset/css/napgame.css" />
+    <link rel="stylesheet" href="../src/asset/css/mye-coin.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="mye-header bg-white">
+    <nav class="navbar navbar-expand-lg py-3">
+        <div class="container mye-container">
+            <a class="navbar-brand p-0 me-lg-4" href="index.html">
+                <img src="../src/asset/images/logo.png" alt="MyE" class="mye-logo" />
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#myeNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="myeNav">
+                <ul class="navbar-nav mx-lg-auto mye-nav gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="#">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Trò Chơi</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="napgame.html">Nạp Game</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tin Tức</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Hỗ Trợ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<nav class="mye-coin-breadcrumb">
+    <div class="container mye-container">
+        <span class="mye-coin-breadcrumb__item mye-coin-breadcrumb__item--parent">Nạp Game</span>
+        <span class="mye-coin-breadcrumb__sep">></span>
+        <span class="mye-coin-breadcrumb__item mye-coin-breadcrumb__item--current">MyE Coin</span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="mye-coin-hero">
+    <div class="mye-coin-hero__bg">
+        <img src="../src/asset/images/MyE_Coin/Hero-banner.png" alt="" class="mye-coin-hero__img" />
+    </div>
+    <div class="container mye-container mye-coin-hero__actions">
+        <a class="btn btn-mye-history" href="#">Lịch sử giao dịch</a>
+    </div>
+</section>
+
+<!-- ACCOUNT INFO BAR -->
+<div class="container mye-container my-4">
+    <div class="mye-coin-account">
+        <div class="mye-coin-account__col">
+            <div class="mye-coin-account__label">Tài khoản</div>
+            <div class="mye-coin-account__value">myepro123</div>
+        </div>
+        <div class="mye-coin-account__divider"></div>
+        <div class="mye-coin-account__col">
+            <div class="mye-coin-account__label">MyE ID</div>
+            <div class="mye-coin-account__value">12233548</div>
+        </div>
+        <div class="mye-coin-account__divider"></div>
+        <div class="mye-coin-account__col">
+            <div class="mye-coin-account__label">Số dư</div>
+            <div class="mye-coin-account__value">
+                1200
+                <img src="../src/asset/images/MyE_Coin/coin_M.png" alt="" style="width:32px;height:32px;margin-left:8px;vertical-align:middle;" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="container mye-container">
+
+        <!-- SECTION 1: CHỌN HÌNH THỨC NẠP -->
+        <section class="mye-coin-section mb-5">
+            <h2 class="mye-coin-section__title">CHỌN HÌNH THỨC NẠP</h2>
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-method">
+                        <div class="mye-coin-method__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Hinh_thuc_nap/Thanh_toan_truc_tiep.png" alt="" class="mye-coin-method__img" />
+                        </div>
+                        <div class="mye-coin-method__name">Thanh toán trực tiếp</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-method">
+                        <div class="mye-coin-method__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Hinh_thuc_nap/ZaloPay.png" alt="" class="mye-coin-method__img" />
+                        </div>
+                        <div class="mye-coin-method__name">ZaloPay</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-method">
+                        <div class="mye-coin-method__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Hinh_thuc_nap/MOMO.png" alt="" class="mye-coin-method__img" />
+                        </div>
+                        <div class="mye-coin-method__name">Ví Momo</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-method">
+                        <div class="mye-coin-method__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Hinh_thuc_nap/ATM.png" alt="" class="mye-coin-method__img" />
+                        </div>
+                        <div class="mye-coin-method__name">ATM/Banking</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-method">
+                        <div class="mye-coin-method__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Hinh_thuc_nap/Visa.png" alt="" class="mye-coin-method__img" />
+                        </div>
+                        <div class="mye-coin-method__name">Visa/Master</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-method">
+                        <div class="mye-coin-method__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Hinh_thuc_nap/Tai_khoan_dinh_danh.png" alt="" class="mye-coin-method__img" />
+                        </div>
+                        <div class="mye-coin-method__name">Tài khoản định danh <br>(Bank VA)</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-method">
+                        <div class="mye-coin-method__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Hinh_thuc_nap/icon_qr.png" alt="" class="mye-coin-method__img" />
+                        </div>
+                        <div class="mye-coin-method__name">QR Code</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: CHỌN GÓI NẠP -->
+        <section class="mye-coin-section mb-5">
+            <h2 class="mye-coin-section__title">CHỌN GÓI NẠP</h2>
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-package">
+                        <div class="mye-coin-package__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Chon_goi_nap/20_MYE_COIN.png" alt="" class="mye-coin-package__img" />
+                        </div>
+                        <div class="d-flex mt-3 justify-content-between w-100 px-3">
+                            <div>
+                                <div class="mye-coin-package__name">20 MyE Coin</div>
+                                <div class="mye-coin-package__price">20.000 VNĐ</div>
+                            </div>
+                            <button class="mye-coin-package__btn">MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-package">
+                        <div class="mye-coin-package__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Chon_goi_nap/50_MYE_COIN.png" alt="" class="mye-coin-package__img" />
+                        </div>
+                        <div class="d-flex mt-3 justify-content-between w-100 px-3">
+                            <div>
+                                <div class="mye-coin-package__name">50 MyE Coin</div>
+                                <div class="mye-coin-package__price">50.000 VNĐ</div>
+                            </div>
+                            <button class="mye-coin-package__btn">MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-package">
+                        <div class="mye-coin-package__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Chon_goi_nap/100_MYE_COIN.png" alt="" class="mye-coin-package__img" />
+                        </div>
+                        <div class="d-flex mt-3 justify-content-between w-100 px-3">
+                            <div>
+                                <div class="mye-coin-package__name">100 MyE Coin</div>
+                                <div class="mye-coin-package__price">100.000 VNĐ</div>
+                            </div>
+                            <button class="mye-coin-package__btn">MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-package">
+                        <div class="mye-coin-package__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Chon_goi_nap/500_MYE_COIN.png" alt="" class="mye-coin-package__img" />
+                        </div>
+                        <div class="d-flex mt-3 justify-content-between w-100 px-3">
+                            <div>
+                                <div class="mye-coin-package__name">500 MyE Coin</div>
+                                <div class="mye-coin-package__price">500.000 VNĐ</div>
+                            </div>
+                            <button class="mye-coin-package__btn">MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-package">
+                        <div class="mye-coin-package__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Chon_goi_nap/1000_MYE_COIN.png" alt="" class="mye-coin-package__img" />
+                        </div>
+                        <div class="d-flex mt-3 justify-content-between w-100 px-3">
+                            <div>
+                                <div class="mye-coin-package__name">1.000 MyE Coin</div>
+                                <div class="mye-coin-package__price">1.000.000 VNĐ</div>
+                            </div>
+                            <button class="mye-coin-package__btn">MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-package">
+                        <div class="mye-coin-package__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Chon_goi_nap/2000_MYE_COIN.png" alt="" class="mye-coin-package__img" />
+                        </div>
+                        <div class="d-flex mt-3 justify-content-between w-100 px-3">
+                            <div>
+                                <div class="mye-coin-package__name">2.000 MyE Coin</div>
+                                <div class="mye-coin-package__price">2.000.000 VNĐ</div>
+                            </div>
+                            <button class="mye-coin-package__btn">MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-package">
+                        <div class="mye-coin-package__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Chon_goi_nap/5000_MYE_COIN.png" alt="" class="mye-coin-package__img" />
+                        </div>
+                        <div class="d-flex mt-3 justify-content-between w-100 px-3">
+                            <div>
+                                <div class="mye-coin-package__name">5.000 MyE Coin</div>
+                                <div class="mye-coin-package__price">5.000.000 VNĐ</div>
+                            </div>
+                            <button class="mye-coin-package__btn">MUA</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="mye-coin-package">
+                        <div class="mye-coin-package__img-wrap">
+                            <img src="../src/asset/images/MyE_Coin/Chon_goi_nap/10000_MYE_COIN.png" alt="" class="mye-coin-package__img" />
+                        </div>
+                        <div class="d-flex mt-3 justify-content-between w-100 px-3">
+                            <div>
+                                <div class="mye-coin-package__name">10.000 MyE Coin</div>
+                                <div class="mye-coin-package__price">10.000.000 VNĐ</div>
+                            </div>
+                            <button class="mye-coin-package__btn">MUA</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: HƯỚNG DẪN NẠP -->
+        <section class="mye-coin-section-3 mb-5">
+            <h2 class="mye-coin-section__title mye-coin-section__title--left">HƯỚNG DẪN NẠP GAME</h2>
+            <div class="mye-coin-guide">
+                <div class="mye-coin-guide__row row px-5    ">
+                    <div class="col-5">
+                        <div class="mye-coin-guide__step">
+                            <span class="mye-coin-guide__num">1</span>
+                            <span class="mye-coin-guide__text">Chọn hình thức nạp phù hợp.</span>
+                        </div>
+                        <div class="mye-coin-guide__step mt-3">
+                            <span class="mye-coin-guide__num ">2</span>
+                            <span class="mye-coin-guide__text">Chọn gói MyE Coin muốn nạp.</span>
+                        </div>
+                        <div class="mye-coin-guide__step mt-3">
+                            <span class="mye-coin-guide__num">3</span>
+                            <span class="mye-coin-guide__text">Thanh toán theo hướng dẫn.</span>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="mye-coin-guide__step">
+                            <span class="mye-coin-guide__num">4</span>
+                            <span class="mye-coin-guide__text">MyE Coin sẽ được cộng vào tài khoản ngay sau khi giao dịch thanh toán thành công.</span>
+                        </div>
+                        <div class="mye-coin-guide__step">
+                            <span class="mye-coin-guide__num">5</span>
+                            <span class="mye-coin-guide__text">Sử dụng MyE Coin:<br/>- Đăng nhập vào app game.<br/>- Chọn mua gói vật phẩm mong muốn trong game.<br/>- MyE Coin sẽ tự động được trừ ngay khi bấm xác nhận mua trong game.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mye-coin-guide__security">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 2.66669L5.33333 7.33335V14.6667C5.33333 22.4534 10.4133 29.64 16 32C21.5867 29.64 26.6667 22.4534 26.6667 14.6667V7.33335L16 2.66669Z" fill="#3B82F6"/><path d="M16 4V29.96C10.6667 27.64 6.66667 20.92 6.66667 14.6667V8.66669L16 4ZM16 16H21.3333V18.6667H16V16Z" fill="#3B82F6" fill-opacity="0.3"/></svg>
+                    <span>Giao dịch an toàn, bảo mật và được xử lý tự động 24/7.</span>
+                </div>
+            </div>
+        </section>
+
+    
+
+                <!-- FOOTER INFO BAR -->
+        <div class="mye-coin-info">
+            <div class="container mye-container position-relative">
+                <div class="row align-items-center">
+                    
+                    <!-- Cột 1 -->
+                    <div class="col-md-4 mye-coin-info__col mye-coin-info__col--blue">
+                        <span class="mye-coin-info__icon">
+                            <svg width="48" height="48" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#3B82F6" fill-opacity="0.2"/><path d="M18 8L10 12V18C10 23.5 13.4 28.1 18 30C22.6 28.1 26 23.5 26 18V12L18 8Z" fill="#2563EB"/><path d="M16 20.5L13.5 18L12 19.5L16 23.5L24 15.5L22.5 14L16 20.5Z" fill="white"/></svg>
+                        </span>
+                        <div class="mye-coin-info__content">
+                            <strong>An toàn &amp; Bảo mật</strong>
+                            <p>Giao dịch được mã hoá, thông tin của bạn luôn được bảo vệ</p>
+                        </div>
+                    </div>
+
+                    <!-- Cột 2 -->
+                    <div class="col-md-4 mye-coin-info__col mye-coin-info__col--orange">
+                        <span class="mye-coin-info__icon">
+                            <svg width="48" height="48" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#FF7900" fill-opacity="0.2"/><circle cx="18" cy="18" r="10" stroke="#FF7900" stroke-width="2.5"/><path d="M18 12V18L21.5 21.5" stroke="#FF7900" stroke-width="2.5" stroke-linecap="round"/></svg>
+                        </span>
+                        <div class="mye-coin-info__content">
+                            <strong>Nạp tự động 24/7</strong>
+                            <p>Thanh toán thành công, MyE Coin sẽ được cộng ngay vào tài khoản.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cột 3 -->
+                    <div class="col-md-4 mye-coin-info__col mye-coin-info__col--green">
+                        <span class="mye-coin-info__icon">
+                            <svg width="48" height="48" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="18" fill="#10B981" fill-opacity="0.2"/><path d="M11 18C11 14.134 14.134 11 18 11C21.866 11 25 14.134 25 18V23H23V18C23 15.2386 20.7614 13 18 13C15.2386 13 13 15.2386 13 18V23H11V18Z" fill="#10B981"/><rect x="10" y="18" width="4" height="7" rx="2" fill="#10B981"/><rect x="22" y="18" width="4" height="7" rx="2" fill="#10B981"/></svg>
+                        </span>
+                        <div class="mye-coin-info__content">
+                            <strong>Hỗ trợ nhanh chóng</strong>
+                            <p>Email: hotro@mye.vn<br/>Hotline: 0902 500 198</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Ảnh nhân vật nằm ngoài .row để ăn theo absolute chuẩn hơn -->
+                <img src="../src/asset/images/MyE_Coin/girlMye.png" alt="MyE Character" class="mye-coin-info__character" />
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="mye-footer">
+    <div class="mye-footer__inner container mye-container">
+        <img src="../src/asset/images/logo.png" alt="MyE Logo" class="mye-footer__logo" />
+        <div class="mye-footer__info">
+            <p><span class="fw-bold">Email:</span> hotro@mye.vn</p>
+            <p><span class="fw-bold">Hotline:</span> 0902 500 198</p>
+            <p class="fw-bold mye-footer__company">CÔNG TY CỔ PHẦN MYE</p>
+            <p>Chịu trách nhiệm quản lí nội dung: Ông Lâm Trung Hiệp</p>
+            <p>Địa chỉ: 477/22 Âu Cơ, Phường Phú Trung, Quận Tân Phú, Thành phố Hồ Chí Minh, Việt Nam</p>
+            <p>Giấy phép G1 số: Số 297/GP-BTTTT. Ngày cấp 14/07/2020, Nơi cấp Bộ Thông Tin và Truyền Thông</p>
+            <p class="mye-footer__links">
+                <a href="#">Điều khoản dịch vụ</a>
+                <span class="mx-2">|</span>
+                <a href="#">Chính sách bảo mật</a>
+            </p>
+            <p>&copy;Copyright &copy; 2026 MYE. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
